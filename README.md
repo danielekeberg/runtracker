@@ -25,7 +25,7 @@ It provides a clean and intuitive dashboard for visualizing progress and perform
 
 ## Author
 
-- Daniel Ekeberg
+Daniel Ekeberg
 [RunTracker](https://runtracker-one.vercel.app/)
 Frontend Developer Student - Oslo, Norway
 
