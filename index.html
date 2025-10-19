@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="./assets/run.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    
+    <script type="module" src="./js/script.js" defer></script>
+    <script type="module" src="./js/hamburger.js" defer></script>
+    <script type="module" src="./js/add.js" defer></script>
+    <script type="module" src="./js/error.js" defer></script>
+    <script type="module" src="./js/userid.js" defer></script>
+    <script src="./js/delete.js" defer></script>
+    <title>RunTracker</title>
+
+</head>
+<body>
+    <header>
+        <div style="text-decoration: none; color: #181818" class="logo">
+            <h1>RunTracker</h1>
+            <p>Track your running journey</p>
+        </div>
+        <div class="nav" id="nav">
+            <img style="display: none" id="error" src="./assets/error-blue.svg">
+            <a style=" text-decoration: none; background: #fff; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);" href="./plan/" class="add">
+                <img src="./assets/cal-18.svg">
+                <p style="color: #181818">View Plan</p>
+            </a>
+            <div class="add" style="background: #fff; color: #181818; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);" id="newUsername">
+                <img src="./assets/user-svgrepo-com.svg">
+                <p id="username">Username</p>
+            </div>
+            <div class="add" id="add">
+                <img src="./assets/plus.svg">
+                <p>Add Run</p>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <p>&#9776;</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="home">
+        <section>
+            <div class="section-header">
+                <img src="./assets/calendar.svg">
+                <h3>This Week</h3>
+            </div>
+            <div class="goal">
+                <div class="distance">
+                    <h3><span id="week-current">0</span> km</h3>
+                    <p>of <span id="goal">0</span> km goal</p>
+                </div>
+                <div class="complete">
+                    <h3><span id="goal-percent">0</span>%</h3>
+                    <p>complete</p>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div id="bar"></div>
+            </div>
+            <div class="runs">
+                <div class="current">
+                    <img src="./assets/pulse.svg">
+                    <div class="stats">
+                        <p id="weeklyRuns">0</p>
+                        <span>runs</span>
+                    </div>
+                </div>
+                <div class="current">
+                    <img src="./assets/growth.svg">
+                    <div class="stats">
+                        <p id="weeklyAvg">0:00/km</p>
+                        <span>avg pace</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="mobile-add">
+            <div class="mobile-btn" id="add-mobile">
+                <img src="./assets/plus.svg">
+                <p>Add Run</p>
+            </div>
+        </div>
+
+        <div class="featured">
+            <div class="card">
+                <h5>Total Distance</h5>
+                <div class="card-main">
+                    <h3><span id="total">0</span> km</h3>
+                    <img src="./assets/pulse-blue.svg">
+                </div>
+                <div class="progress" id="distanceProgress">
+                </div>
+            </div>
+            <div class="card">
+                <h5>Total Runs</h5>
+                <div class="card-main">
+                    <h3><span id="totalRuns">0</span></h3>
+                    <img src="./assets/target.svg">
+                </div>
+                <div class="progress" id="runsProgress">
+                </div>
+            </div>
+            <div class="card">
+                <h5>Avg Pace (Running)</h5>
+                <div class="card-main">
+                    <h3><span id="avgPace">0:00</span>/km</h3>
+                    <img src="./assets/clock.svg">
+                </div>
+            </div>
+            <div class="card">
+                <h5>This Month</h5>
+                <div class="card-main">
+                    <h3><span id="thisMonth">0</span> km</h3>
+                    <img src="./assets/growth-blue.svg">
+                </div>
+                <div class="progress">
+                    <p style="color: #577fd6"><span id="lastMonth">0.0</span> km last month</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="recent">
+            <div class="recent-header best">
+                <h3>Best Runs</h3>
+            </div>
+            <div class="runs" id="best">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 id="longestRunDistance">0.00 km run</h4>
+                        <div style="display: flex; align-items: center; gap: 5px;">
+                            <img style="opacity: 1; cursor: default;" src="./assets/medal.svg">
+                            <h4>Longest Run</h4>
+                        </div>
+                    </div>
+                    <div class="time">
+                        <div class="date">
+                            <img src="./assets/cal-70.svg">
+                            <p id="longestRunDate"></p>
+                        </div>
+                    </div>
+                    <div class="run-stats">
+                        <div class="run-time">
+                            <img src="./assets/clock-70.svg">
+                            <div>
+                                <span id="longestRunTime">00:00</span>
+                                <p>Duration</p>
+                            </div>
+                        </div>
+                        <div class="run-time">
+                            <div class="">
+                                <span id="longestRunAvg">0:00/km</span>
+                                <p>Avg Pace</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="run-stats location">
+                        <div class="run-time">
+                            <img src="./assets/location-70.svg">
+                            <p id="longestLocation"></p>
+                        </div>
+                    </div>
+                    <div class="desc">
+                        <p id="longestDesc"></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h4 id="fastestRunDistance">0.00 km run</h4>
+                        <div style="display: flex; align-items: center; gap: 5px;">
+                            <img style="opacity: 1; cursor: default;" src="./assets/fast.svg">
+                            <h4>Fastest Run</h4>
+                        </div>
+                    </div>
+                    <div class="time">
+                        <div class="date">
+                            <img src="./assets/cal-70.svg">
+                            <p id="fastestRunDate"></p>
+                        </div>
+                    </div>
+                    <div class="run-stats">
+                        <div class="run-time">
+                            <img src="./assets/clock-70.svg">
+                            <div>
+                                <span id="fastestRunTime">00:00</span>
+                                <p>Duration</p>
+                            </div>
+                        </div>
+                        <div class="run-time">
+                            <div class="">
+                                <span id="fastestRunAvg">0:00/km</span>
+                                <p>Avg Pace</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="run-stats location">
+                        <div class="run-time">
+                            <img src="./assets/location-70.svg">
+                            <p id="fastestLocation"></p>
+                        </div>
+                    </div>
+                    <div class="desc">
+                        <p id="fastestDesc"></p>
+                    </div>
+                </div>
+                <div class="card threeK" style="display: none;">
+                    <div class="card-header">
+                        <h4 id="fast3kDistance">0.00 km run</h4>
+                        <div style="display: flex; align-items: center; gap: 5px;">
+                            <img style="opacity: 1; cursor: default;" src="./assets/fast.svg">
+                            <h4>Fastest 3K</h4>
+                        </div>
+                    </div>
+                    <div class="time">
+                        <div class="date">
+                            <img src="./assets/cal-70.svg">
+                            <p id="fast3kDate"></p>
+                        </div>
+                    </div>
+                    <div class="run-stats">
+                        <div class="run-time">
+                            <img src="./assets/clock-70.svg">
+                            <div>
+                                <span id="fast3k">00:00</span>
+                                <p>Duration</p>
+                            </div>
+                        </div>
+                        <div class="run-time">
+                            <div class="">
+                                <span id="fast3kAvg">0:00/km</span>
+                                <p>Avg Pace</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="run-stats location">
+                        <div class="run-time">
+                            <img src="./assets/location-70.svg">
+                            <p id="fast3kLocation"></p>
+                        </div>
+                    </div>
+                    <div class="desc">
+                        <p id="fast3kDesc"></p>
+                    </div>
+                </div>
+                <div class="card fiveK" style="display: none">
+                    <div class="card-header">
+                        <h4 id="fast5kDistance">0.00 km run</h4>
+                        <div style="display: flex; align-items: center; gap: 5px;">
+                            <img style="opacity: 1; cursor: default;" src="./assets/fast.svg">
+                            <h4>Fastest 5K</h4>
+                        </div>
+                    </div>
+                    <div class="time">
+                        <div class="date">
+                            <img src="./assets/cal-70.svg">
+                            <p id="fast5kDate"></p>
+                        </div>
+                    </div>
+                    <div class="run-stats">
+                        <div class="run-time">
+                            <img src="./assets/clock-70.svg">
+                            <div>
+                                <span id="fast5k">00:00</span>
+                                <p>Duration</p>
+                            </div>
+                        </div>
+                        <div class="run-time">
+                            <div class="">
+                                <span id="fast5kAvg">0:00/km</span>
+                                <p>Avg Pace</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="run-stats location">
+                        <div class="run-time">
+                            <img src="./assets/location-70.svg">
+                            <p id="fast5kLocation"></p>
+                        </div>
+                    </div>
+                    <div class="desc">
+                        <p id="fast5kDesc"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="recent">
+            <div class="recent-header">
+                <h3>Recent Runs</h3>
+                <h4><span id="recentLogged">0</span> runs logged</h4>
+            </div>
+            <div class="runs" id="runs">
+                <!-- <div class="card">
+                    <div class="card-header">
+                        <h4>2.88 km run</h4>
+                        <img onclick="deleteRun(8)" class="delete" src="./assets/delete.svg">
+                    </div>
+                    <div class="time">
+                        <div class="date">
+                            <img src="./assets/cal-70.svg">
+                            <p>Sun, Jul 20</p>
+                        </div>
+                        <p class="difficulty easy">easy</p>
+                    </div>
+                    <div class="run-stats">
+                        <div class="run-time">
+                            <img src="./assets/clock-70.svg">
+                            <div>
+                                <span>17:10</span>
+                                <p>Duration</p>
+                            </div>
+                        </div>
+                        <div class="run-time">
+                            <div class="">
+                                <span>5:58/km</span>
+                                <p>Avg Pace</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="run-stats location">
+                        <div class="run-time">
+                            <img src="./assets/location-70.svg">
+                            <p>Sognsvann</p>
+                        </div>
+                    </div>
+                    <div class="desc">
+                        <p>Hello</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h4>2.88 km run</h4>
+                        <img onclick="deleteRun(8)" class="delete" src="./assets/delete.svg">
+                    </div>
+                    <div class="time">
+                        <div class="date">
+                            <img src="./assets/cal-70.svg">
+                            <p>Sun, Jul 20</p>
+                        </div>
+                        <p class="difficulty easy">easy</p>
+                    </div>
+                    <div class="run-stats">
+                        <div class="run-time">
+                            <img src="./assets/clock-70.svg">
+                            <div>
+                                <span>17:10</span>
+                                <p>Duration</p>
+                            </div>
+                        </div>
+                        <div class="run-time">
+                            <div class="">
+                                <span>5:58/km</span>
+                                <p>Avg Pace</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="run-stats location">
+                        <div class="run-time">
+                            <img src="./assets/location-70.svg">
+                            <p>Sognsvann</p>
+                        </div>
+                    </div>
+                    <div class="desc">
+                        <p>Hello</p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </main>
+    
+    <!-- <div class="overlay">
+        <div class="addRun">
+            <div class="add-header">
+                <h2>Add New Run</h2>
+                <p id="remove">x</p>
+            </div>
+            <div class="form">
+                <div>
+                    <p>Date</p>
+                    <input type="datetime-local" id="myDatetime">
+                </div>
+                <div>
+                    <p>Type</p>
+                    <select id="runType" name="runType">
+                        <option value="easy">Easy</option>
+                        <option value="tempo">Tempo</option>
+                        <option value="interval">Interval</option>
+                        <option value="long">Long Run</option>
+                        <option value="recovery">Recovery</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form">
+                <div>
+                    <p>Distance (km)</p>
+                    <input type="number" id="distance" placeholder="5.0">
+                </div>
+                <div>
+                    <p>Duration (mm:ss)</p>
+                    <input type="text" id="duration" placeholder="25:30">
+                </div>
+            </div>
+            <div class="form longer">
+                <div>
+                    <p>Location</p>
+                    <input type="text" id="location" placeholder="Sognsvann">
+                </div>
+            </div>
+            <div class="form longer">
+                <div>
+                    <p>Notes</p>
+                    <textarea type="text" id="location" placeholder="How did the run feel? Any observations..."></textarea>
+                </div>
+            </div>
+            <div class="btns">
+                <div id="submit">
+                    <img src="./assets/plus.svg">
+                    <p>Add Run</p>
+                </div>
+                <button id="cancel">Cancel</button>
+            </div>
+        </div>
+    </div> -->
+</body>
+</html>

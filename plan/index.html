@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../assets/run.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    
+    <script type="module" src="../js/plan.js" defer></script>
+
+    <title>RunTracker</title>
+
+</head>
+<body>
+    <header>
+        <div class="plan-header">
+            <a href="../">
+                <img src="../assets/arrow.svg">
+            </a>
+            <div style="text-decoration: none; color: #181818" class="logo">
+                <h1>Training Plan</h1>
+                <p>Your structured running program</p>
+            </div>
+        </div>
+        <div class="plan-length">
+            <p>8 weeks</p>
+            <span id="totalDist">0.0 km total</span>
+        </div>
+    </header>
+
+    <main>
+        <div class="program">
+            <div class="prog-header">
+                <img src="../assets/cal-blue.svg">
+                <h3>8-Week Running Program</h3>
+            </div>
+            <div class="prog">
+                <div class="prog-card">
+                    <p>Total Weeks</p>
+                    <span>8</span>
+                </div>
+                <div class="prog-card">
+                    <p>Total Distance</p>
+                    <span id="totalDistance">0.0 km</span>
+                </div>
+                <div class="prog-card">
+                    <p>Avg Weekly Distance</p>
+                    <span id="avgWeeklyDistance">0.0 km</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="recent">
+            <div class="recent-header">
+                <h3>Week 1</h3>
+            </div>
+            <div class="runs" id="week1"></div>
+        </div>
+
+        <div class="recent">
+            <div class="recent-header">
+                <h3>Week 2</h3>
+            </div>
+            <div class="runs" id="week2"></div>
+        </div>
+        <div class="recent">
+            <div class="recent-header">
+                <h3>Week 3</h3>
+            </div>
+            <div class="runs" id="week3"></div>
+        </div>
+        <div class="recent">
+            <div class="recent-header">
+                <h3>Week 4</h3>
+            </div>
+            <div class="runs" id="week4"></div>
+        </div>
+        <div class="recent">
+            <div class="recent-header">
+                <h3>Week 5</h3>
+            </div>
+            <div class="runs" id="week5"></div>
+        </div>
+        <div class="recent">
+            <div class="recent-header">
+                <h3>Week 6</h3>
+            </div>
+            <div class="runs" id="week6"></div>
+        </div>
+        <div class="recent">
+            <div class="recent-header">
+                <h3>Week 7</h3>
+            </div>
+            <div class="runs" id="week7"></div>
+        </div>
+        <div class="recent">
+            <div class="recent-header">
+                <h3>Week 8</h3>
+            </div>
+            <div class="runs" id="week8"></div>
+        </div>
+    </main>
+</body>
+</html>
