@@ -1,5 +1,5 @@
-const url = 'https://api.sheetbest.com/sheets/7bd324c2-1206-479d-82e1-1253bf9f45c6';
-const plan_url = 'https://api.sheetbest.com/sheets/e1865a4a-bc95-4df1-876a-388d6b535747';
+const url = 'https://api.sheetbest.com/sheets/6ba08a51-0dc0-47b3-b46c-76c9c65fe949';
+const plan_url = 'https://api.sheetbest.com/sheets/b99fdba9-74fb-4cdc-a9b0-4a04bfc98c08';
 const uid = localStorage.getItem('userid');
 
 function getWeekNumber(date = new Date()) {
@@ -605,4 +605,5 @@ weeklyProgress();
 weeklyGoal();
 best3k();
 best5k();
+
 reminder();
