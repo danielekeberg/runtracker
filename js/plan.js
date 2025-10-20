@@ -1,4 +1,4 @@
-const url = 'https://api.sheetbest.com/sheets/e1865a4a-bc95-4df1-876a-388d6b535747';
+const url = 'https://api.sheetbest.com/sheets/b99fdba9-74fb-4cdc-a9b0-4a04bfc98c08';
 
 async function getStats() {
     try {
@@ -543,4 +543,5 @@ async function getWeeks() {
 }
 
 getWeeks();
+
 getStats();
